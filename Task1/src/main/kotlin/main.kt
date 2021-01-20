@@ -1,40 +1,32 @@
 fun main(args: Array<String>) {
-    println("Hello World!")
+    val x = 17
 
-    var x = 17
+    val myQueue = MyQueue()
+    myQueue.push(x)     // Pushing 17
+    myQueue.push(x + 32)    // Pushing 49
+    myQueue.push(x - 2)     // Pushing 15
+    myQueue.push(x + 131)   // Pushing 148
+    myQueue.push(x * 3)     // Pushing 51
+    println(myQueue.peek())     // Returns 17
+    println(myQueue.pop())      // Returns 17
+    println(myQueue.empty())    // Returns false
 
-    var obj1 = MyQueue()
-    obj1.push(x)
-    obj1.push(x + 13)
-    var p2 = obj1.pop()
-    var p3 = obj1.peek()
-    var p4 = obj1.empty()
-    println(p2)
-    println(p3)
-    println(p4)
-    obj1.push(x + 132)
-    p2 = obj1.pop()
-    p3 = obj1.peek()
-    p4 = obj1.empty()
-    println(p2)
-    println(p3)
-    println(p4)
-    obj1.push(x - 1)
-    p2 = obj1.pop()
-    p3 = obj1.peek()
-    p4 = obj1.empty()
-    println(p2)
-    println(p3)
-    println(p4)
+    println(myQueue.peek())     // Returns 49
+    println(myQueue.pop())      // Returns 49
+    println(myQueue.empty())    // Returns false
 
-    var obj2 = MyStack()
-    obj2.push(x)
-    var pa2 = obj2.pop()
-    println(pa2)
-    var pa3 = obj2.top()
-    println(pa3)
-    var pa4 = obj2.empty()
-    println(pa4)
-    var pa5 = obj2.pop()
-    println(pa5)
+
+    val myStack = MyStack()
+    myStack.push(x)     // Pushing 17
+    myStack.push(x + 32)    // Pushing 49
+    myStack.push(x - 2)     // Pushing 15
+    myStack.push(x + 131)   // Pushing 148
+    myStack.push(x * 3)     // Pushing 51
+    println(myStack.top())     // Returns 51
+    println(myStack.pop())      // Returns 51
+    println(myStack.empty())    // Returns false
+
+    println(myStack.top())     // Returns 148
+    println(myStack.pop())      // Returns 148
+    println(myStack.empty())    // Returns false
 }

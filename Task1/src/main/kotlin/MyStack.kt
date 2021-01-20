@@ -1,6 +1,6 @@
 import java.util.*
 
-class MyStack() {
+class MyStack {
 
     /** Initialize your data structure here. */
     private val queue1: Queue<Int> = LinkedList()
@@ -16,19 +16,13 @@ class MyStack() {
     }
 
     /** Removes the element on top of the stack and returns that element. */
-    fun pop(): Int {
-        return if (!queue1.isEmpty()) queue1.remove() else -1
-    }
+    fun pop(): Int = if (!queue1.isEmpty()) queue1.remove() else -1
 
     /** Get the top element. */
-    fun top(): Int {
-        return if (!queue1.isEmpty()) queue1.peek() else -1
-    }
+    fun top(): Int = if (!queue1.isEmpty()) queue1.peek() else -1
 
     /** Returns whether the stack is empty. */
-    fun empty(): Boolean {
-        return queue1.isEmpty()
-    }
+    fun empty(): Boolean = queue1.isEmpty()
 
 }
 

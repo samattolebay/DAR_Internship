@@ -1,17 +1,16 @@
 import java.util.*
 
-class MyQueue() {
+class MyQueue {
 
     /** Initialize your data structure here. */
     private val stack1: Stack<Int> = Stack()
     private val stack2: Stack<Int> = Stack()
-    var front = 0
+    private var front = 0
 
     /** Push element x to the back of queue. */
     fun push(x: Int) {
-        if (stack1.empty()) {
+        if (stack1.empty())
             front = x
-        }
         stack1.push(x)
     }
 
@@ -27,16 +26,13 @@ class MyQueue() {
 
     /** Get the front element. */
     fun peek(): Int {
-        if (!stack2.empty()) {
+        if (!stack2.empty())
             return stack2.peek()
-        }
         return if (!stack1.empty()) front else -1
     }
 
     /** Returns whether the queue is empty. */
-    fun empty(): Boolean {
-        return stack1.empty() && stack2.empty()
-    }
+    fun empty(): Boolean = stack1.empty() && stack2.empty()
 
 }
 
