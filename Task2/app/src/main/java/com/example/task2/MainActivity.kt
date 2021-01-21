@@ -1,11 +1,14 @@
 package com.example.task2
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.task2.data.DataSource
+import com.example.task2.model.Student
 import com.google.android.material.textfield.TextInputLayout
 import java.util.ArrayList
 
@@ -16,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         val buttonAddStudent = findViewById<Button>(R.id.btnAddStudent)
 
-        val students = ArrayList<Student>()
+        val students = DataSource().loadStudents()
 
         updateTextTotalNumber(students)
 
@@ -30,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             var validInput = name.isNotBlank() && surname.isNotBlank()
 
             if (!validInput) {
-                Toast.makeText(this, "Empty/Blank Input!!", Toast.LENGTH_LONG).show()
+                showToast(this, "Empty/Blank input!!")
                 return@setOnClickListener
             }
 
@@ -42,10 +45,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             if (!validInput) {
-                Toast.makeText(this, "Student is already added!!", Toast.LENGTH_LONG).show()
+                showToast(this, "Student is already added!!")
             } else {
                 students.add(Student(name, surname))
-                Toast.makeText(this, "Student added!!", Toast.LENGTH_LONG).show()
+                showToast(this, "Student added!!")
                 updateTextTotalNumber(students)
             }
         }
@@ -59,7 +62,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateTextTotalNumber(students: MutableList<Student>) {
+    private fun showToast(context: Context, text: String) {
+        Toast.makeText(context, text, Toast.LENGTH_LONG).show()
+    }
+
+    private fun updateTextTotalNumber(students: ArrayList<Student>) {
         val textTotalNumber = findViewById<TextView>(R.id.tvTotalNumber)
         textTotalNumber.text = "Total number of students: ${students.size}"
     }

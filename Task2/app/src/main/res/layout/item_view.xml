@@ -3,6 +3,6 @@
     android:id="@+id/tvStudentInfo"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textSize="24sp">
+    android:textSize="32sp">
 
 </TextView>

@@ -1,4 +1,4 @@
-package com.example.task2
+package com.example.task2.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.task2.R
+import com.example.task2.model.Student
 import java.util.ArrayList
 
 class StudentAdapter(private val context: Context,
