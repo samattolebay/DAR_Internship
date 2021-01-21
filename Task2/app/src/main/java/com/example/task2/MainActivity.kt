@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.isEmpty
 import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
@@ -13,11 +12,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val textTotalNumber = findViewById<TextView>(R.id.tvTotalNumber)
-
         val buttonAddStudent = findViewById<Button>(R.id.btnAddStudent)
 
         val students = mutableListOf<Student>()
+
+        updateTextTotalNumber(students)
 
         buttonAddStudent.setOnClickListener {
             val nameInput = findViewById<TextInputLayout>(R.id.tilName)
@@ -45,7 +44,13 @@ class MainActivity : AppCompatActivity() {
             } else {
                 students.add(Student(name, surname))
                 Toast.makeText(this, "Student added!!", Toast.LENGTH_LONG).show()
+                updateTextTotalNumber(students)
             }
         }
+    }
+
+    private fun updateTextTotalNumber(students: MutableList<Student>) {
+        val textTotalNumber = findViewById<TextView>(R.id.tvTotalNumber)
+        textTotalNumber.text = "Total number of students: ${students.size}"
     }
 }
