@@ -1,11 +1,13 @@
 package com.example.task2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
+import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val buttonAddStudent = findViewById<Button>(R.id.btnAddStudent)
 
-        val students = mutableListOf<Student>()
+        val students = ArrayList<Student>()
 
         updateTextTotalNumber(students)
 
@@ -33,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             for (student in students) {
-                if (student.name == name || student.surname == surname) {
+                if (student.name == name && student.surname == surname) {
                     validInput = false
                     break
                 }
@@ -46,6 +48,14 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Student added!!", Toast.LENGTH_LONG).show()
                 updateTextTotalNumber(students)
             }
+        }
+
+        val buttonShowStudents = findViewById<Button>(R.id.btnShowStudents)
+
+        buttonShowStudents.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            intent.putParcelableArrayListExtra("data", students)
+            startActivity(intent)
         }
     }
 
