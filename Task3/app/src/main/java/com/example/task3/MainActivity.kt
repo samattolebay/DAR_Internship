@@ -2,15 +2,11 @@ package com.example.task3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.Navigation
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fcvFragment, FirstFragment())
-            commit()
-        }
     }
 }
