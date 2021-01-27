@@ -11,14 +11,14 @@
         android:id="@+id/tvTextStudentInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text = "@string/student_info_text"
+        android:text="@string/student_info_text"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/tvStudentInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text = "ID: 103\nName: Samat\nSurname: Tolebay\nGrade: 99.5\nImage: null"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:text="ID: 103\nName: Samat\nSurname: Tolebay\nGrade: 99.5\nImage: null" />
 
 </LinearLayout>

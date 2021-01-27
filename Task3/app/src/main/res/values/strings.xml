@@ -10,4 +10,5 @@
     <string name="student_grade">Grade: %s</string>
     <string name="student_image">Image: %s</string>
     <string name="student_info">%s\n%s\n%s\n%s\n%s</string>
+    <string name="restore_student">Restore</string>
 </resources>

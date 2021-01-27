@@ -47,6 +47,17 @@ class FirstFragment : Fragment() {
             }
         }
 
+        val restoreStudent = view.findViewById<Button>(R.id.btnRestoreStudent)
+        restoreStudent.setOnClickListener {
+            val name = DataSource.restoreStudent()
+            if (name != null) {
+                adapter?.submitList(DataSource.getStudents())
+                context?.let { it1 -> showToast(it1, "Student $name is restored!") }
+            } else {
+                context?.let { it1 -> showToast(it1, "The restore list is empty!") }
+            }
+        }
+
         return view
     }
 

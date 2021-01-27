@@ -16,8 +16,7 @@ data class Student(
         parcel.readString(),
         parcel.readValue(Double::class.java.classLoader) as? Double,
         parcel.readString()
-    ) {
-    }
+    )
 
     override fun toString(): String = "$id - $name"
     override fun writeToParcel(parcel: Parcel, flags: Int) {

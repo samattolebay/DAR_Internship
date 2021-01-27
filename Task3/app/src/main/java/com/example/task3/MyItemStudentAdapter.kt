@@ -41,7 +41,11 @@ class MyItemStudentAdapter(
 
         holder.deleteStudent.setOnClickListener {
             if (DataSource.deleteStudent(item)) {
-                Toast.makeText(context, "Student ${item.name} is deleted from the list", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    context,
+                    "Student ${item.name} is deleted from the list",
+                    Toast.LENGTH_LONG
+                ).show()
                 submitList(DataSource.getStudents().toList())
             }
         }
