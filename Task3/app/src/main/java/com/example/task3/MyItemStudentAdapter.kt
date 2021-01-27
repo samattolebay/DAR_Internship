@@ -15,10 +15,10 @@ import com.example.task3.model.Student
  * [RecyclerView.Adapter] that can display a [Student].
  */
 class MyItemStudentAdapter(
-    private val values: List<Student>,
     private val navController: NavController
 ) : RecyclerView.Adapter<MyItemStudentAdapter.ViewHolder>() {
 
+    private var values: List<Student> = listOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.fragment_item, parent, false)
@@ -37,6 +37,11 @@ class MyItemStudentAdapter(
     }
 
     override fun getItemCount(): Int = values.size
+
+    fun submitList(listOfStudents: List<Student>?) {
+        values = listOfStudents ?: listOf()
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val studentInfo: Button = view.findViewById(R.id.btnStudentInfo)
