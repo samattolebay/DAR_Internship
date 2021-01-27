@@ -8,38 +8,17 @@
     tools:context=".SecondFragment">
 
     <TextView
-        android:id="@+id/tvStudentInfo"
+        android:id="@+id/tvTextStudentInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Student Info:"
+        android:text = "@string/student_info_text"
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/tvStudentID"
+        android:id="@+id/tvStudentInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        tools:text="ID: 271" />
-
-    <TextView
-        android:id="@+id/tvStudentName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        tools:text="Name: Samat" />
-
-    <TextView
-        android:id="@+id/tvStudentSurname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        tools:text="Surname: Tolebay" />
-
-    <TextView
-        android:id="@+id/tvStudentGrade"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        tools:text="Grade: 75.50" />
+        tools:text = "ID: 103\nName: Samat\nSurname: Tolebay\nGrade: 99.5\nImage: null"
+        android:textSize="24sp" />
 
 </LinearLayout>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.task3.model.Student
 
 class SecondFragment : Fragment() {
     override fun onCreateView(
@@ -15,17 +16,17 @@ class SecondFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_second, container, false)
 
-        val id = 1
-        view.findViewById<TextView>(R.id.tvStudentID).text = "ID: ${id.toString()}"
+        val student = arguments?.getParcelable<Student>(Student.STUDENT)
 
-        val name = "Samat"
-        view.findViewById<TextView>(R.id.tvStudentName).text = "Name: $name"
-
-        val surname = "Tolebay"
-        view.findViewById<TextView>(R.id.tvStudentSurname).text = "Surname: $surname"
-
-        val grade = 75.5
-        view.findViewById<TextView>(R.id.tvStudentGrade).text = "Grade: $grade"
+        if (student != null) {
+            view.findViewById<TextView>(R.id.tvStudentInfo).text = context?.getString(
+                R.string.student_info,
+                context?.getString(R.string.student_id, student.id.toString()),
+                context?.getString(R.string.student_name, student.name),
+                context?.getString(R.string.student_surname, student.surname),
+                context?.getString(R.string.student_grade, student.grade.toString()),
+                context?.getString(R.string.student_image, student.image))
+        }
 
         return view
     }

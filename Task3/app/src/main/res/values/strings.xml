@@ -3,4 +3,11 @@
     <string name="add_student">Add Student</string>
     <string name="name">Name</string>
     <string name="delete">Delete</string>
+    <string name="student_id">ID: %s</string>
+    <string name="student_info_text">Student Info:</string>
+    <string name="student_name">Name: %s</string>
+    <string name="student_surname">Surname: %s</string>
+    <string name="student_grade">Grade: %s</string>
+    <string name="student_image">Image: %s</string>
+    <string name="student_info">%s\n%s\n%s\n%s\n%s</string>
 </resources>

@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 
-import com.example.task3.dummy.DataSource.Student
+import com.example.task3.model.Student
 
 /**
  * [RecyclerView.Adapter] that can display a [Student].
@@ -28,9 +29,10 @@ class MyItemStudentAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         holder.studentInfo.text = item.toString()
-        Log.d("Hey", navController.toString())
+
         holder.studentInfo.setOnClickListener {
-            navController.navigate(R.id.navigateToSecondFragment)
+            val bundle = bundleOf(Student.STUDENT to item)
+            navController.navigate(R.id.navigateToSecondFragment, bundle)
         }
     }
 
