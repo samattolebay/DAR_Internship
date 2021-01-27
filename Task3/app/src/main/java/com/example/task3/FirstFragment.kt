@@ -27,7 +27,7 @@ class FirstFragment : Fragment() {
         val navController =
             activity?.let { it1 -> Navigation.findNavController(it1, R.id.fcvFragment) }
 
-        val adapter = navController?.let { MyItemStudentAdapter(it) }
+        val adapter = navController?.let { context?.let { it1 -> MyItemStudentAdapter(it1, it) } }
         adapter?.submitList(DataSource.getStudents())
 
         val rvListStudents = view.findViewById<RecyclerView>(R.id.rvListOfStudents)

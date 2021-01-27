@@ -9,11 +9,11 @@ object DataSource {
 
     private val ITEM_MAP: MutableMap<String?, Student> = HashMap()
 
-    private const val COUNT = 25
+    private var count = 25
 
     init {
         // Add some sample items.
-        for (i in 1..COUNT) {
+        for (i in 1..count) {
             addItem(createItem(i))
         }
     }
@@ -34,8 +34,17 @@ object DataSource {
     fun getStudents(): List<Student> = ITEMS.toList()
 
     fun addStudent(name: String) {
-        addItem(createItem(ITEMS.size + 1, name))
+        addItem(createItem(++count, name))
     }
 
     fun containsStudent(name: String?): Boolean = ITEM_MAP.containsKey(name)
+
+    fun deleteStudent(student: Student): Boolean {
+        if (ITEMS.contains(student)) {
+            val studentToDelete = ITEM_MAP.remove(student.name)
+            ITEMS.remove(studentToDelete)
+            return true
+        }
+        return false
+    }
 }
